@@ -28,7 +28,7 @@ componentDidMount = () =>{
     this.setState({
       isSignedIn : !!user
     })
-
+    console.log("user", user)
   })
 }
   render() {
@@ -36,7 +36,11 @@ componentDidMount = () =>{
       <div className="App">
       {this.state.isSignedIn ? 
         (
-        <div>Im IN!</div>
+        <span>
+          <div>Im IN!</div>
+          <button onClick={() => firebase.auth().signOut()}>Sign Out</button>
+          <h1>Hello my friend! {firebase.auth().currentUser.displayName}</h1>
+        </span>
         )
       :
         (
