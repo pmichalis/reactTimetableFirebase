@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import firebase from "firebase";
-import Calendar from './components/Calendar'
+import CulinaryRecipes from './src/CulinaryRecipes'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 firebase.initializeApp({
@@ -42,7 +42,7 @@ componentDidMount = () =>{
           <button onClick={() => firebase.auth().signOut()}>Sign Out</button>
           <h1>Hello my friend! {firebase.auth().currentUser.displayName}</h1>
           <div>
-            <Calendar/>
+            <CulinaryRecipes/>
           </div>
         </span>
         )
