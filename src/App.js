@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import firebase from "firebase";
-import CulinaryRecipes from './src/CulinaryRecipes'
+import CulinaryRecipes from './components/CulinaryRecipes'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 firebase.initializeApp({
