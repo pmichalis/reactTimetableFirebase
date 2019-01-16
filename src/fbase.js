@@ -1,6 +1,7 @@
 import Rebase from "re-base";
 import firebase from "firebase";
 
+
 const firebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyCH0WKW1YYDX2rPAuic6RYSjQhSCtFb4YM",
   authDomain: "przepisnik-123.firebaseapp.com",
@@ -13,3 +14,4 @@ const firebaseApp = firebase.initializeApp({
 
   const fbase = Rebase.createClass(firebaseApp.database());
   export {fbase, firebaseApp};
+

@@ -1,7 +1,6 @@
 import React from 'react';
-import RecipesView from './RecipesView';
+import BookView from './BookView';
 import {fbase} from '../fbase';
-
 
 class Inventory extends React.Component {
     
@@ -10,31 +9,31 @@ class Inventory extends React.Component {
         this.state = {}
     }
     componentDidMount() {
-        this.ref = fbase.syncState('MyFevoriteRecipes/recipes',{
+        this.ref = fbase.syncState('bookstore/books',{
             context: this,
-            state: 'Recipes'
+            state: 'books'
         });
    }
 
    componentWillUnmount() {
-    fbase.removeBinding(this.ref);
+       fbase.removeBinding(this.ref);
    }
     
     render() {
 
-        let recipeListing = <h3>Brak przepisów</h3>
+        let bookListing = <h3>No books on firebase!</h3>
 
-        if(Array.isArray(this.state.recipes))
-        recipeListing = this.state.recipes.map( recipe => {
-                return <RecipesView recipe={recipe}/>
+        if(Array.isArray(this.state.books))
+            bookListing = this.state.books.map( book => {
+                return <BookView book={book} addToOrder={this.props.addToOrder}/>
         });
 
 
         
         return (
         <div className="inventory col-md-6">
-                <h2>Przepiski</h2>
-                {recipeListing}
+                <h2>bookstore inventory:</h2>
+                {bookListing}
         </div>
         );
     }

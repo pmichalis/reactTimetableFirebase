@@ -1,10 +1,11 @@
 import React from 'react';
+import Header from './Header';
 import Inventory from './Inventory';
 import Footer from './Footer';
 
 import '../index.css';
 
-class CulinaryRecipes extends React.Component {
+class App extends React.Component {
 
     constructor() {
         super();
@@ -12,14 +13,6 @@ class CulinaryRecipes extends React.Component {
             order : []
         }
     }
-
-
-    addToOrder = (book) => {
-        this.setState({
-            order : [...this.state.order, book]
-        })
-    }
-
     removeFromOrder = (title) => {
         this.setState({
             order : this.state.order.filter(book => title!==book.name)
@@ -28,9 +21,8 @@ class CulinaryRecipes extends React.Component {
     render() {
         return (
             <div className="app container">
-               
-                <div className="row">
-                    <Inventory books={this.state.books} addToOrder={this.addToOrder}/>
+                <Header />
+                <div className="row"><Inventory books={this.state.books} addToOrder={this.addToOrder}/>
                 </div>
                 <Footer />
             </div>
@@ -40,4 +32,4 @@ class CulinaryRecipes extends React.Component {
 }
 
 
-export default CulinaryRecipes;
+export default App;
