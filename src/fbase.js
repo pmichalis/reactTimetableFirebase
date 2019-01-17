@@ -1,17 +1,15 @@
 import Rebase from "re-base";
 import firebase from "firebase";
 
-
 const firebaseApp = firebase.initializeApp({
-  apiKey: "AIzaSyCH0WKW1YYDX2rPAuic6RYSjQhSCtFb4YM",
-  authDomain: "przepisnik-123.firebaseapp.com",
-  databaseURL: "https://przepisnik-123.firebaseio.com",
-  projectId: "przepisnik-123",
-  storageBucket: "przepisnik-123.appspot.com",
-  messagingSenderId: "239387872054"
+    apiKey: "AIzaSyBctRoc_kh8An8W8RsDt7a0YBwD0Am0pj8",
+    authDomain: "kept-data.firebaseapp.com",
+    databaseURL: "https://kept-data.firebaseio.com",
+    projectId: "kept-data",
+    storageBucket: "kept-data.appspot.com",
+    messagingSenderId: "492429388943"
   });
 
 
   const fbase = Rebase.createClass(firebaseApp.database());
   export {fbase, firebaseApp};
-

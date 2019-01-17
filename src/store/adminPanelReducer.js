@@ -2,11 +2,11 @@ import {SEND_BOOK_TO_EDIT, UPDATE_BOOK} from './actions';
 
 const initialState = {
     book : {
-        name : "",
-        author : "",
-        description: "",
-        onStock: true,
-        image: ""
+        name: "",
+        time: "",
+        componentsRecipe: "",
+        preparationDescription: "",
+        image: "",
     },
     editMode : false,
     titleOfBookForRemoval: ""

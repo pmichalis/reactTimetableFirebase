@@ -1,5 +1,5 @@
 import React from 'react';
-import BookView from './BookView';
+import RecipeView from './RecipeView';
 import {fbase} from '../fbase';
 
 class Inventory extends React.Component {
@@ -25,7 +25,7 @@ class Inventory extends React.Component {
 
         if(Array.isArray(this.state.books))
             bookListing = this.state.books.map( book => {
-                return <BookView book={book} addToOrder={this.props.addToOrder}/>
+                return <RecipeView book={book} addToOrder={this.props.addToOrder}/>
         });
 
 

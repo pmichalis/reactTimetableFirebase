@@ -37,7 +37,9 @@ class AddBook extends React.Component {
             this.props.updateBook({
                    book: {
                     name: "",
-                    description: "",
+                    time: "",
+                    componentsRecipe: "",
+                    preparationDescription: "",
                     image: "",
                    }
             });
@@ -49,10 +51,12 @@ class AddBook extends React.Component {
             this.props.editBook(this.props.titleOfBookForRemoval, newBook);
 
             this.props.updateBook({
-                        name: "",
-                        description: "",
-                        image: "",
-             });
+                    name : "",
+                    time : "",
+                    componentsRecipe : "",
+                    preparationDescription : "",
+                    image : "",
+                });
         }
 
         event.target.reset();
@@ -68,17 +72,25 @@ class AddBook extends React.Component {
             <div className="adminpanel col-md-4">
                     <form onSubmit={this.addNewBook}>
                         <div className="form-group">
-                            <input type="text" placeholder="Book name" id="name" name="name" className="form-control"
+                            <input type="text" placeholder="Nazwa przepisu" id="name" name="name" className="form-control"
                                 onChange={this.handleChange} value={this.props.book.name} />
                         </div>
-
                         <div className="form-group">
-                            <textarea placeholder="Book description" id="description" name="description" className="form-control"
-                                onChange={this.handleChange} value={this.props.book.description} />
+                            <input type="text" placeholder="Potrzebny czas" id="time" name="time" className="form-control"
+                                onChange={this.handleChange} value={this.props.book.time} />
+                        </div>
+                        <div className="form-group">
+                            <textarea type="text" placeholder="Składniki" id="componentsRecipe" name="componentsRecipe" className="form-control"
+                                onChange={this.handleChange} value={this.props.book.componentsRecipe} />
                         </div>
 
                         <div className="form-group">
-                            <input type="text" placeholder="Book image" id="image" name="image" className="form-control"
+                            <textarea placeholder="Opis przygotowania" id="preparationDescription" name="preparationDescription" className="form-control"
+                                onChange={this.handleChange} value={this.props.book.preparationDescription} />
+                        </div>
+
+                        <div className="form-group">
+                            <input type="text" placeholder="Zdjęcie" id="image" name="image" className="form-control"
                                 onChange={this.handleChange} value={this.props.book.image} />
                         </div>
 

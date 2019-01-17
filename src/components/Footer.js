@@ -12,25 +12,6 @@ class Footer extends React.Component {
 
         }
     }
-    handleClick = () => {
-
-        if(this.state.clicked) {
-            this.setState({
-                projectAuthorName : " programmed by P.Michalis",
-                textColor : "black",
-                backgroundColor : "white"
-            })
-        } else {
-            this.setState({
-                projectAuthorName : " programmed by P.Michalis",
-                textColor : "white",
-                backgroundColor : "black"
-            })
-        }
-        this.setState({
-            clicked : !this.state.clicked
-        })
-    }
 
 
 
