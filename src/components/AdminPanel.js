@@ -21,7 +21,7 @@ class AdminPanel extends React.Component {
     })
 
     componentDidMount() {
-        this.ref = fbase.syncState('bookstore/books',{
+        this.ref = fbase.syncState('myrecipes/recipes',{
             context: this,
             state: 'books'
         });

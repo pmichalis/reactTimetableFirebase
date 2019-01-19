@@ -1,9 +1,4 @@
 import React from 'react';
-
-import {Accordion, AccordionItem, AccordionItemTitle, AccordionItemBody,} from 'react-accessible-accordion';
- 
-import 'react-accessible-accordion/dist/fancy-example.css';
-
 export default class RecipeView extends React.Component {
 
 

@@ -9,7 +9,7 @@ class Inventory extends React.Component {
         this.state = {}
     }
     componentDidMount() {
-        this.ref = fbase.syncState('bookstore/books',{
+        this.ref = fbase.syncState('myrecipes/recipes',{
             context: this,
             state: 'books'
         });

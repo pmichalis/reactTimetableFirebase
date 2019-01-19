@@ -1,9 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {sendBookToEditAction} from '../store/actions';
-import {Accordion, AccordionItem, AccordionItemTitle, AccordionItemBody,} from 'react-accessible-accordion';
- 
-import 'react-accessible-accordion/dist/fancy-example.css';
 
 class BookView extends React.Component {
 
