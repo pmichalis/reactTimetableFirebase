@@ -1,4 +1,5 @@
 import React from 'react';
+import Order from './Order';
 import Header from './Header';
 import Inventory from './Inventory';
 import Footer from './Footer';
@@ -13,6 +14,14 @@ class App extends React.Component {
             order : []
         }
     }
+
+
+    addToOrder = (book) => {
+        this.setState({
+            order : [...this.state.order, book]
+        })
+    }
+
     removeFromOrder = (title) => {
         this.setState({
             order : this.state.order.filter(book => title!==book.name)
@@ -22,7 +31,9 @@ class App extends React.Component {
         return (
             <div className="app container">
                 <Header />
-                <div className="row"><Inventory books={this.state.books} addToOrder={this.addToOrder}/>
+                <div className="row">
+                <Inventory books={this.state.books} addToOrder={this.addToOrder}/>
+                    <Order order={this.state.order} removeFromOrder={this.removeFromOrder}/>
                 </div>
                 <Footer />
             </div>

@@ -7,7 +7,6 @@ class Header extends React.Component {
         super();
         this.state = {
             recipeInvName : "Pzepiśnik",
-            clicked : true,
             textColor : "white",
             backgroundColor : "black"
 
