@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from './App';
 import AdminPanel from './AdminPanel';
-import PageNotFound from './PageNotFound';
 import {Provider} from 'react-redux';
 import store from '../store/store';
 
@@ -16,7 +15,7 @@ export default class Router extends React.Component {
                     <Switch>
                         <Route exact path="/" component={App} />
                         <Route path="/admin" component={AdminPanel} />
-                        <Route component={PageNotFound} />
+                        <Route component={App} />
                     </Switch>
                 </BrowserRouter>
             </Provider>

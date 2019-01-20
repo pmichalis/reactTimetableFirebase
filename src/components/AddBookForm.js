@@ -66,10 +66,11 @@ class AddBook extends React.Component {
 
     render(){
 
-        const label = this.props.editMode? "Edit" : "Add";
+        const label = this.props.editMode? "Edytuj" : "Dodaj";
 
         return(
-            <div className="adminpanel col-md-4">
+            <div className="adminpanel col-md-4 adminrecipeadd">
+            <h1>Dodawanie przepisów:</h1>
                     <form onSubmit={this.addNewBook}>
                         <div className="form-group">
                             <input type="text" placeholder="Nazwa przepisu" id="name" name="name" className="form-control"
@@ -97,8 +98,7 @@ class AddBook extends React.Component {
                         
                         <button type="submit" className="btn btn-primary">{label}</button>
                     </form>
-                    <a href={firebaseApp.auth().signOut()} className="btn btn-danger loggin">Log Out</a>
-                    <a href="javascript:history.back();" className="btn btn-danger loggin">Back</a>
+                    <a href={firebaseApp.auth().signOut()} className="btn btn-danger loggin">Wyloguj się</a>
                 </div> 
         )
     }

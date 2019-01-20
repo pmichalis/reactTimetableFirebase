@@ -12,3 +12,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.adminrecipeadd{
+  display: inline-table;
+}
+.tgrecipe{
+  border: solid 1px #ebebeb;
+  padding: 0px 0px 10px 0px;
+  width:100%;
+  margin: 1rem 0px;
+  border-radius: 5px;
+}
+.recipename{
+  width: 80%;
+}
+.recipetime{
+  width: 20%;
+}
+.btrecipeadmin{
+  display: inline-block;
+}
+.descriptioncomponents{
+  border: solid 1px #dddd;
+  background-color: #f8f8f8;
+  padding: 10px;
+  margin: 10px 0px;
+  border-radius: 5px;
+}
+.recipebody{
+  padding: 0px;
+}
+.headerpercipe{
+    padding: 10px 0;
+  border-bottom:solid 1px #ebebeb
+}
+.btrecipeadmin .btn.btn-danger{
+  margin: 0px 10px;
+}

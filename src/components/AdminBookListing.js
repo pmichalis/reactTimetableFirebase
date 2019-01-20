@@ -19,7 +19,7 @@ class AdminBookListing extends React.Component {
         } 
 
        return (
-           <div>
+           <div class="adminrecipeadd col-md-8">
             {list}
            </div>
        )

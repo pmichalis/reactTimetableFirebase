@@ -37,8 +37,8 @@ class LoginPanel extends React.Component {
                         <input type="password" placeholder="Password" id="password_bs" name="password" className="form-control" 
                             onChange={this.handleLoginChange} value={this.state.password}/>
                         <div className="adminLogginButtons">
-                            <button type="submit" className="btn btn-primary loggin">Log in</button>
-                            <a href="javascript:history.back();" className="btn btn-danger loggin">Back</a>
+                            <button type="submit" className="btn btn-primary loggin">Logowanie</button>
+                            <a href={firebaseApp.auth().signOut()} className="btn btn-danger loggin">Powrót</a>
                          </div>
                     </form>
                 </div>
