@@ -17,7 +17,6 @@ code {
 }
 .tgrecipe{
   border: solid 1px #ebebeb;
-  padding: 0px 0px 10px 0px;
   width:100%;
   margin: 1rem 0px;
   border-radius: 5px;
@@ -46,5 +45,11 @@ code {
   border-bottom:solid 1px #ebebeb
 }
 .btrecipeadmin .btn.btn-danger{
-  margin: 0px 10px;
+  margin: 0px 3px;
+}
+.accordion {
+  width:100%
+}
+.accordion__title {
+  padding: 5px 0px!important;
 }
