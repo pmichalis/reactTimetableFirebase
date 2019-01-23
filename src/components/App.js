@@ -16,15 +16,15 @@ class App extends React.Component {
     }
 
 
-    addToOrder = (book) => {
+    addToOrder = (recipe) => {
         this.setState({
-            order : [...this.state.order, book]
+            order : [...this.state.order, recipe]
         })
     }
 
     removeFromOrder = (title) => {
         this.setState({
-            order : this.state.order.filter(book => title!==book.name)
+            order : this.state.order.filter(recipe => title!==recipe.name)
         })
     }
     render() {
@@ -32,7 +32,7 @@ class App extends React.Component {
             <div className="app container">
                 <Header />
                 <div className="row">
-                <Inventory books={this.state.books} addToOrder={this.addToOrder}/>
+                <Inventory recips={this.state.recips} addToOrder={this.addToOrder}/>
                     <Order order={this.state.order} removeFromOrder={this.removeFromOrder}/>
                 </div>
                 <Footer />

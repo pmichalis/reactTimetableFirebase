@@ -6,13 +6,13 @@ class AdminBookListing extends React.Component {
 
     render() {
 
-        let list = <div>No books in state</div>;
+        let list = <div>No recips in state</div>;
 
-        if(this.props.books && Array.isArray(this.props.books)) {
-            list = this.props.books.map((book) => {
+        if(this.props.recips && Array.isArray(this.props.recips)) {
+            list = this.props.recips.map((recipe) => {
                return (<AdminBookView  
-                    key = {book.name}
-                    book = {book} 
+                    key = {recipe.name}
+                    recipe = {recipe} 
                     removeFromInventory = {this.props.removeFromInventory} 
                 />)
                });

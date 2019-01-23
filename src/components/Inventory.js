@@ -11,7 +11,7 @@ class Inventory extends React.Component {
     componentDidMount() {
         this.ref = fbase.syncState('myrecipes/recipes',{
             context: this,
-            state: 'books'
+            state: 'recips'
         });
    }
 
@@ -21,11 +21,11 @@ class Inventory extends React.Component {
     
     render() {
 
-        let bookListing = <h3>No books on firebase!</h3>
+        let bookListing = <h3>No recips on firebase!</h3>
 
-        if(Array.isArray(this.state.books))
-            bookListing = this.state.books.map( book => {
-                return <RecipeList book={book} addToOrder={this.props.addToOrder}/>
+        if(Array.isArray(this.state.recips))
+            bookListing = this.state.recips.map( recipe => {
+                return <RecipeList recipe={recipe} addToOrder={this.props.addToOrder}/>
         });
         
         return (

@@ -1,4 +1,5 @@
 import React from 'react';
+
 export default class RecipeView extends React.Component {
 
 
@@ -6,14 +7,26 @@ export default class RecipeView extends React.Component {
         return (
             <div className="orderView row">
             <div className="col-md-12">
-                <p><strong>Nazwa przepis:</strong><br/>{this.props.book.name} </p>
-                <i>Potrzebny czas: {this.props.book.time}</i><br/><br/>
-                <p><strong>Składniki:</strong> <br/>{this.props.book.componentsRecipe}</p>
-                <p><strong>Opis przygotowania:</strong> <br/>{this.props.book.preparationDescription}</p>
-                
+            <div className="col-md-8">
+                <strong>{this.props.recipe.name}</strong>
+            </div>
+            <div className="col-md-4">
+                {this.props.recipe.time}
+            </div>
+            <div className="col-md-4">
+                {this.props.recipe.image}
+            </div>
+            <div className="col-md-8">
+            <strong>Składniki:</strong> <br/>
+                {this.props.recipe.componentsRecipe}
+            </div>
+            <div className="col-md-12">
+            <strong>Opis przygotowania:</strong> <br/>
+                {this.props.recipe.preparationDescription}
+            </div>
             </div>
             <div className="col-xs-4">
-                <button className="btn btn-primary" onClick={ (event) => this.props.removeFromOrder(this.props.book.name)}>Zamknij</button>
+                <button className="btn btn-primary" onClick={ (event) => this.props.removeFromOrder(this.props.recipe.name)}>Zamknij</button>
             </div>
             </div>
                 

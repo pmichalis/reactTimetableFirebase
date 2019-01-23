@@ -5,37 +5,37 @@ import {updateBookAction} from '../store/actions';
 
 class AddBook extends React.Component {
 
+
     handleChange = (event) => {
 
         let newBook;
 
         if (event.target.name === "onStock") {
             newBook = {
-                ...this.props.book,
+                ...this.props.recipe,
                 [event.target.name]: event.target.checked
             };
         } else {
             newBook = {
-                ...this.props.book,
+                ...this.props.recipe,
                 [event.target.name]: event.target.value
             };
         }
 
         this.props.updateBook(newBook);
     }
-
-    addNewBook = (event) => {
+    addNewRecipe = (event) => {
 
         event.preventDefault();
 
         if (!this.props.editMode) {
 
-            const newBook = { ...this.props.book };
+            const newBook = { ...this.props.recipe };
 
-            this.props.addNewBook(newBook);
+            this.props.addNewRecipe(newBook);
 
             this.props.updateBook({
-                   book: {
+                recipe: {
                     name: "",
                     time: "",
                     componentsRecipe: "",
@@ -46,7 +46,7 @@ class AddBook extends React.Component {
 
         } else {
             
-            const newBook = { ...this.props.book };
+            const newBook = { ...this.props.recipe };
 
             this.props.editBook(this.props.titleOfBookForRemoval, newBook);
 
@@ -71,31 +71,29 @@ class AddBook extends React.Component {
         return(
             <div className="adminpanel col-md-4 adminrecipeadd">
             <h1>Dodawanie przepisów:</h1>
-                    <form onSubmit={this.addNewBook}>
+                    <form onSubmit={this.addNewRecipe}>
                         <div className="form-group">
                             <input type="text" placeholder="Nazwa przepisu" id="name" name="name" className="form-control"
-                                onChange={this.handleChange} value={this.props.book.name} />
+                                onChange={this.handleChange} value={this.props.recipe.name} />
                         </div>
                         <div className="form-group">
                             <input type="text" placeholder="Potrzebny czas" id="time" name="time" className="form-control"
-                                onChange={this.handleChange} value={this.props.book.time} />
+                                onChange={this.handleChange} value={this.props.recipe.time} />
                         </div>
                         <div className="form-group">
                             <textarea type="text" placeholder="Składniki" id="componentsRecipe" name="componentsRecipe" className="form-control"
-                                onChange={this.handleChange} value={this.props.book.componentsRecipe} />
+                                onChange={this.handleChange} value={this.props.recipe.componentsRecipe} />
                         </div>
 
                         <div className="form-group">
                             <textarea placeholder="Opis przygotowania" id="preparationDescription" name="preparationDescription" className="form-control"
-                                onChange={this.handleChange} value={this.props.book.preparationDescription} />
+                                onChange={this.handleChange} value={this.props.recipe.preparationDescription} />
                         </div>
 
                         <div className="form-group">
                             <input type="text" placeholder="Zdjęcie" id="image" name="image" className="form-control"
-                                onChange={this.handleChange} value={this.props.book.image} />
+                                onChange={this.handleChange} value={this.props.recipe.image} />
                         </div>
-
-                        
                         <button type="submit" className="btn btn-primary">{label}</button>
                     </form>
                     <a href={firebaseApp.auth().signOut()} className="btn btn-danger loggin">Wyloguj się</a>
@@ -106,13 +104,13 @@ class AddBook extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateBook : book => dispatch(updateBookAction(book))
+        updateBook : recipe => dispatch(updateBookAction(recipe))
     }
 }
 
 const mapStateToProps = state => {
     return {
-        book : state.book,
+        recipe : state.recipe,
         editMode : state.editBook,
         titleOfBookForRemoval : state.titleOfBookForRemoval
     }

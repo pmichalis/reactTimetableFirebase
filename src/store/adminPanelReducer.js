@@ -1,7 +1,7 @@
 import {SEND_BOOK_TO_EDIT, UPDATE_BOOK} from './actions';
 
 const initialState = {
-    book : {
+    recipe : {
         name: "",
         time: "",
         componentsRecipe: "",
@@ -18,13 +18,13 @@ const adminPanelReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case UPDATE_BOOK:
-            const book = action.payload;
-            return {...state, book};
+            const recipe = action.payload;
+            return {...state, recipe};
         case SEND_BOOK_TO_EDIT:
             const bookToEdit = action.payload
             return { 
                 ...state,
-                book : {...bookToEdit},
+                recipe : {...bookToEdit},
                 editMode: true,
                 titleOfBookForRemoval: bookToEdit.name
             }

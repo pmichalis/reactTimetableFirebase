@@ -16,14 +16,14 @@ class AdminPanel extends React.Component {
 
     changeLoggedIn = (newValue) => this.setState({loggedIn: newValue}) 
 
-    addNewBook = (book) => this.setState({
-        books : [...this.state.books, book]
+    addNewRecipe = (recipe) => this.setState({
+        recips : [...this.state.recips, recipe]
     })
 
     componentDidMount() {
         this.ref = fbase.syncState('myrecipes/recipes',{
             context: this,
-            state: 'books'
+            state: 'recips'
         });
    }
 
@@ -34,15 +34,15 @@ class AdminPanel extends React.Component {
 
    removeFromInventory = (title) => {
     this.setState({
-        books: this.state.books.filter( book => title!==book.name )
+        recips: this.state.recips.filter( recipe => title!==recipe.name )
     })
    }
 
     editBook = (oldBookTitle, bookAfterEdit) => {
-        const newBooks = this.state.books.filter( book => oldBookTitle!==book.name );
+        const newBooks = this.state.recips.filter( recipe => oldBookTitle!==recipe.name );
 
         this.setState({
-            books : [...newBooks, bookAfterEdit],
+            recips : [...newBooks, bookAfterEdit],
         })
     }
     render() {
@@ -55,11 +55,11 @@ class AdminPanel extends React.Component {
             {this.state.loggedIn && 
                 <React.Fragment>
                     <AddBookForm 
-                    addNewBook = {this.addNewBook} 
+                    addNewRecipe = {this.addNewRecipe} 
                     editBook = {this.editBook}
                     />
                     <AdminBookListing 
-                    books = {this.state.books} 
+                    recips = {this.state.recips} 
                     removeFromInventory = {this.removeFromInventory}
                     />
                     
