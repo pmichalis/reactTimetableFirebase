@@ -16,13 +16,13 @@ class App extends React.Component {
     }
 
 
-    addToOrder = (recipe) => {
+    showRecipe = (recipe) => {
         this.setState({
             order : [...this.state.order, recipe]
         })
     }
 
-    removeFromOrder = (title) => {
+    closeRecipe = (title) => {
         this.setState({
             order : this.state.order.filter(recipe => title!==recipe.name)
         })
@@ -31,9 +31,11 @@ class App extends React.Component {
         return (
             <div className="app container">
                 <Header />
+                <input type="text" ></input>
                 <div className="row">
-                <Inventory recips={this.state.recips} addToOrder={this.addToOrder}/>
-                    <Order order={this.state.order} removeFromOrder={this.removeFromOrder}/>
+               
+                <Inventory recips={this.state.recips} showRecipe={this.showRecipe}/>
+                    <Order order={this.state.order} closeRecipe={this.closeRecipe}/>
                 </div>
                 <Footer />
             </div>

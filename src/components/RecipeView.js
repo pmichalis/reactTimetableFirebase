@@ -2,13 +2,14 @@ import React from 'react';
 
 export default class RecipeView extends React.Component {
 
-
     render() {
         return (
             <div className="orderView row">
             <div className="col-md-12">
             <div className="col-md-8">
-                <strong>{this.props.recipe.name}</strong>
+            <div id={this.props.recipe.name}>
+                <strong>{this.props.recipe.recipeId}. {this.props.recipe.name}</strong>
+            </div>
             </div>
             <div className="col-md-4">
                 {this.props.recipe.time}
@@ -26,7 +27,7 @@ export default class RecipeView extends React.Component {
             </div>
             </div>
             <div className="col-xs-4">
-                <button className="btn btn-primary" onClick={ (event) => this.props.removeFromOrder(this.props.recipe.name)}>Zamknij</button>
+                <button className="btn btn-primary" onClick={ (event) => this.props.closeRecipe(this.props.recipe.name)}>Zamknij</button>
             </div>
             </div>
                 

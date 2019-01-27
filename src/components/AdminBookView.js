@@ -24,7 +24,7 @@ render() {
                 <AccordionItem>
                     <AccordionItemTitle>
                         <div>
-                        <div class="col-md-8 btrecipeadmin"><strong>{this.id}. {this.props.recipe.name}</strong></div>
+                        <div class="col-md-8 btrecipeadmin"><strong>{this.props.recipe.recipeId}. {this.props.recipe.name}</strong></div>
                         <div class="col-md-2 btrecipeadmin">{this.props.recipe.time} minut</div>
                         <div className="col-xs-1 btrecipeadmin">
                             <button className="btn btn-danger" onClick={ (event) => this.props.sendBookToEdit(this.props.recipe)}>Edytuj</button>
@@ -32,9 +32,7 @@ render() {
                                 <div className="col-xs-1 btrecipeadmin"> 
                             <button className="btn btn-danger" onClick={(event) => 
                             window.confirm("Czy napewno chcesz usunąć ten przepis?") &&
-                            this.props.removeFromInventory(this.props.recipe.name)
-                            }>Usuń
-                            </button>
+                            this.props.removeFromInventory(this.props.recipe.name)}>Usuń</button>
                         </div>
                         </div>
                     </AccordionItemTitle>

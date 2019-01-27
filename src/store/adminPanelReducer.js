@@ -2,6 +2,7 @@ import {SEND_BOOK_TO_EDIT, UPDATE_BOOK} from './actions';
 
 const initialState = {
     recipe : {
+        recipeId: "",
         name: "",
         time: "",
         componentsRecipe: "",

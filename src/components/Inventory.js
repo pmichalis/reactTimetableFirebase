@@ -25,10 +25,11 @@ class Inventory extends React.Component {
 
         if(Array.isArray(this.state.recips))
             bookListing = this.state.recips.map( recipe => {
-                return <RecipeList recipe={recipe} addToOrder={this.props.addToOrder}/>
+                return <RecipeList recipe={recipe} showRecipe={this.props.showRecipe}/>
         });
         
         return (
+            
         <div className="inventory col-md-4">
                 {bookListing}
         </div>

@@ -9,7 +9,7 @@ class Order extends React.Component {
     render() {
         const orderedBooks = this.props.order.map( order => {
             return <RecipeView recipe={order} 
-            removeFromOrder={this.props.removeFromOrder}
+            closeRecipe={this.props.closeRecipe}
             />
         })
 
