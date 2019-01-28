@@ -36,7 +36,6 @@ class AddBook extends React.Component {
 
             this.props.updateBook({
                 recipe: {
-                    recipeId: "",
                     name: "",
                     time: "",
                     componentsRecipe: "",
@@ -52,7 +51,6 @@ class AddBook extends React.Component {
             this.props.editBook(this.props.titleOfBookForRemoval, newBook);
 
             this.props.updateBook({
-                    recipeId: "",
                     name : "",
                     time : "",
                     componentsRecipe : "",
@@ -74,10 +72,6 @@ class AddBook extends React.Component {
             <div className="adminpanel col-md-4 adminrecipeadd">
             <h1>Dodawanie przepisów:</h1>
                     <form onSubmit={this.addNewRecipe}>
-                        <div className="form-group">
-                            <input type="number" placeholder="numer przepisu" id="name" name="recipeId" className="form-control"
-                                onChange={this.handleChange} value={this.props.recipe.recipeId} />
-                        </div>
                         <div className="form-group">
                             <input type="text" placeholder="Nazwa przepisu" id="name" name="name" className="form-control"
                                 onChange={this.handleChange} value={this.props.recipe.name} />

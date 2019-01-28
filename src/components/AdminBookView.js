@@ -13,18 +13,20 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 
 class BookView extends React.Component {
 
-componentWillMount() {
-    this.id = newId();
-}
+    constructor(props) {
+        super(props);
+        this.id = newId();
+    }
    
 render() {
+    
         return (
             <div className="orderView row adminRecipeAdd tgrecipe">
                <Accordion>
                 <AccordionItem>
                     <AccordionItemTitle>
                         <div>
-                        <div class="col-md-8 btrecipeadmin"><strong>{this.props.recipe.recipeId}. {this.props.recipe.name}</strong></div>
+                        <div class="col-md-8 btrecipeadmin"><strong>{this.id}. {this.props.recipe.name}</strong></div>
                         <div class="col-md-2 btrecipeadmin">{this.props.recipe.time} minut</div>
                         <div className="col-xs-1 btrecipeadmin">
                             <button className="btn btn-danger" onClick={ (event) => this.props.sendBookToEdit(this.props.recipe)}>Edytuj</button>

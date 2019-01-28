@@ -8,7 +8,7 @@ export default class RecipeView extends React.Component {
             <div className="col-md-12">
             <div className="col-md-8">
             <div id={this.props.recipe.name}>
-                <strong>{this.props.recipe.recipeId}. {this.props.recipe.name}</strong>
+                <strong>{this.props.recipe.name}</strong>
             </div>
             </div>
             <div className="col-md-4">
