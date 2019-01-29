@@ -1,7 +1,7 @@
 import React from 'react';
-import AdminBookView from './AdminBookView'
+import AdminRecipeView from './AdminRecipeView'
 
-class AdminBookListing extends React.Component {
+class AdminRecipeListing extends React.Component {
 
 
     render() {
@@ -10,7 +10,7 @@ class AdminBookListing extends React.Component {
 
         if(this.props.recips && Array.isArray(this.props.recips)) {
             list = this.props.recips.map((recipe) => {
-               return (<AdminBookView  
+               return (<AdminRecipeView  
                     key = {recipe.name}
                     recipe = {recipe} 
                     removeFromInventory = {this.props.removeFromInventory} 
@@ -26,4 +26,4 @@ class AdminBookListing extends React.Component {
 }
 }
 
-export default AdminBookListing;
+export default AdminRecipeListing;

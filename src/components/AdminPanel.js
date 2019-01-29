@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginPanel from './LoginPanel';
-import AddBookForm from './AddBookForm';
-import AdminBookListing from './AdminBookListing';
+import AddRecipeForm from './AddRecipeForm';
+import AdminRecipeListing from './AdminRecipeListing';
 import {fbase} from '../fbase';
 
 
@@ -38,7 +38,7 @@ class AdminPanel extends React.Component {
     })
    }
 
-    editBook = (oldBookTitle, bookAfterEdit) => {
+   editRecipe = (oldBookTitle, bookAfterEdit) => {
         const newBooks = this.state.recips.filter( recipe => oldBookTitle!==recipe.name );
 
         this.setState({
@@ -54,11 +54,11 @@ class AdminPanel extends React.Component {
             }
             {this.state.loggedIn && 
                 <React.Fragment>
-                    <AddBookForm 
+                    <AddRecipeForm 
                     addNewRecipe = {this.addNewRecipe} 
-                    editBook = {this.editBook}
+                    editRecipe = {this.editRecipe}
                     />
-                    <AdminBookListing 
+                    <AdminRecipeListing 
                     recips = {this.state.recips} 
                     removeFromInventory = {this.removeFromInventory}
                     />

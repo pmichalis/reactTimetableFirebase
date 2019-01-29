@@ -1,28 +1,28 @@
 import React from 'react';
 import {firebaseApp} from '../fbase';
 import {connect} from 'react-redux';
-import {updateBookAction} from '../store/actions';
+import {updateRecipeAction} from '../store/actions';
 
-class AddBook extends React.Component {
+class AddRecipe extends React.Component {
 
 
     handleChange = (event) => {
 
-        let newBook;
+        let newRecipe;
 
         if (event.target.name === "onStock") {
-            newBook = {
+            newRecipe = {
                 ...this.props.recipe,
                 [event.target.name]: event.target.checked
             };
         } else {
-            newBook = {
+            newRecipe = {
                 ...this.props.recipe,
                 [event.target.name]: event.target.value
             };
         }
 
-        this.props.updateBook(newBook);
+        this.props.updateRecipe(newRecipe);
     }
     addNewRecipe = (event) => {
 
@@ -30,11 +30,11 @@ class AddBook extends React.Component {
 
         if (!this.props.editMode) {
 
-            const newBook = { ...this.props.recipe };
+            const newRecipe = { ...this.props.recipe };
 
-            this.props.addNewRecipe(newBook);
+            this.props.addNewRecipe(newRecipe);
 
-            this.props.updateBook({
+            this.props.updateRecipe({
                 recipe: {
                     name: "",
                     time: "",
@@ -46,11 +46,11 @@ class AddBook extends React.Component {
 
         } else {
             
-            const newBook = { ...this.props.recipe };
+            const newRecipe = { ...this.props.recipe };
 
-            this.props.editBook(this.props.titleOfBookForRemoval, newBook);
+            this.props.editRecipe(this.props.titleOfRecipeForRemoval, newRecipe);
 
-            this.props.updateBook({
+            this.props.updateRecipe({
                     name : "",
                     time : "",
                     componentsRecipe : "",
@@ -104,18 +104,18 @@ class AddBook extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateBook : recipe => dispatch(updateBookAction(recipe))
+        updateRecipe : recipe => dispatch(updateRecipeAction(recipe))
     }
 }
 
 const mapStateToProps = state => {
     return {
         recipe : state.recipe,
-        editMode : state.editBook,
-        titleOfBookForRemoval : state.titleOfBookForRemoval
+        editMode : state.editRecipe,
+        titleOfRecipeForRemoval : state.titleOfRecipeForRemoval
     }
 }
 
-const AddBookForm = connect(mapStateToProps,mapDispatchToProps)(AddBook)
+const AddRecipeForm = connect(mapStateToProps,mapDispatchToProps)(AddRecipe)
 
-export default AddBookForm;
+export default AddRecipeForm;

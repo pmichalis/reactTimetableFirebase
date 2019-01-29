@@ -1,4 +1,4 @@
-import {SEND_BOOK_TO_EDIT, UPDATE_BOOK} from './actions';
+import {SEND_RECIPE_TO_EDIT, UPDATE_RECIPE} from './actions';
 
 const initialState = {
     recipe : {
@@ -9,7 +9,7 @@ const initialState = {
         image: "",
     },
     editMode : false,
-    titleOfBookForRemoval: ""
+    titleOfRecipeForRemoval: ""
 }
 
 const adminPanelReducer = (state = initialState, action) => {
@@ -17,16 +17,16 @@ const adminPanelReducer = (state = initialState, action) => {
     console.log("Action received " + action.type);
 
     switch(action.type) {
-        case UPDATE_BOOK:
+        case UPDATE_RECIPE:
             const recipe = action.payload;
             return {...state, recipe};
-        case SEND_BOOK_TO_EDIT:
-            const bookToEdit = action.payload
+        case SEND_RECIPE_TO_EDIT:
+            const recipeToEdit = action.payload
             return { 
                 ...state,
-                recipe : {...bookToEdit},
+                recipe : {...recipeToEdit},
                 editMode: true,
-                titleOfBookForRemoval: bookToEdit.name
+                titleOfRecipeForRemoval: recipeToEdit.name
             }
         default:
             return state;

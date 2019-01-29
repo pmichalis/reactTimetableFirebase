@@ -1,7 +1,7 @@
 import React from 'react';
 import newId from './newid';
 import {connect} from 'react-redux';
-import {sendBookToEditAction} from '../store/actions';
+import {sendRecipeToEditAction} from '../store/actions';
 import {
     Accordion,
     AccordionItem,
@@ -29,7 +29,7 @@ render() {
                         <div class="col-md-8 btrecipeadmin"><strong>{this.id}. {this.props.recipe.name}</strong></div>
                         <div class="col-md-2 btrecipeadmin">{this.props.recipe.time} minut</div>
                         <div className="col-xs-1 btrecipeadmin">
-                            <button className="btn btn-danger" onClick={ (event) => this.props.sendBookToEdit(this.props.recipe)}>Edytuj</button>
+                            <button className="btn btn-danger" onClick={ (event) => this.props.sendRecipeToEdit(this.props.recipe)}>Edytuj</button>
                         </div>
                                 <div className="col-xs-1 btrecipeadmin"> 
                             <button className="btn btn-danger" onClick={(event) => 
@@ -63,10 +63,10 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        sendBookToEdit : (recipe) => dispatch(sendBookToEditAction(recipe))
+        sendRecipeToEdit : (recipe) => dispatch(sendRecipeToEditAction(recipe))
     }
 }
 
-const AdminBookView = connect(mapStateToProps,mapDispatchToProps)(BookView);
+const AdminRecipeView  = connect(mapStateToProps,mapDispatchToProps)(BookView);
 
-export default AdminBookView
+export default AdminRecipeView;

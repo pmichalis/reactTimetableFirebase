@@ -7,7 +7,7 @@ import RecipeView from './RecipeView';
 class Order extends React.Component {
    
     render() {
-        const orderedBooks = this.props.order.map( order => {
+        const orderedRecips = this.props.order.map( order => {
             return <RecipeView recipe={order} 
             closeRecipe={this.props.closeRecipe}
             />
@@ -16,7 +16,7 @@ class Order extends React.Component {
 
         return (
         <div className="order col-md-8">
-           {orderedBooks}
+           {orderedRecips}
         </div>
         );
     }

@@ -1,17 +1,17 @@
-export const UPDATE_BOOK = 'UPDATE_BOOK';
-export const SEND_BOOK_TO_EDIT = 'SEND_BOOK_TO_EDIT';
+export const UPDATE_RECIPE = 'UPDATE_RECIPE';
+export const SEND_RECIPE_TO_EDIT = 'SEND_RECIPE_TO_EDIT';
 
 
-export const updateBookAction = (recipe) => {
+export const updateRecipeAction = (recipe) => {
     return { 
-        type: UPDATE_BOOK, 
+        type: UPDATE_RECIPE, 
         payload: recipe 
     }
 }
 
-export const sendBookToEditAction = (recipe) => { 
+export const sendRecipeToEditAction = (recipe) => { 
  return {
-    type: SEND_BOOK_TO_EDIT,
+    type: SEND_RECIPE_TO_EDIT,
     payload: recipe
  }
 }
