@@ -4,7 +4,15 @@ import {connect} from 'react-redux';
 import {updateRecipeAction} from '../store/actions';
 
 class AddRecipe extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+          file: '',
+          imagePreviewUrl: ''
+        };
+        this._handleImageChange = this._handleImageChange.bind(this);
+        this._handleSubmit = this._handleSubmit.bind(this);
+      }
 
     handleChange = (event) => {
 
@@ -62,12 +70,35 @@ class AddRecipe extends React.Component {
         event.target.reset();
 
     }
-
+    _handleSubmit(e) {
+        e.preventDefault();
+        // TODO: do something with -> this.state.file
+      }
+    
+      _handleImageChange(e) {
+        e.preventDefault();
+    
+        let reader = new FileReader();
+        let file = e.target.files[0];
+    
+        reader.onloadend = () => {
+          this.setState({
+            file: file,
+            imagePreviewUrl: reader.result
+          });
+        }
+    
+        reader.readAsDataURL(file)
+      }
 
     render(){
 
         const label = this.props.editMode? "Edytuj" : "Dodaj";
-
+        let {imagePreviewUrl} = this.state;
+        let $imagePreview = null;
+        if (imagePreviewUrl) {
+          $imagePreview = (<img src={imagePreviewUrl} />);
+        }
         return(
             <div className="adminpanel col-md-4 adminrecipeadd">
             <h1>Dodawanie przepisów:</h1>
@@ -91,8 +122,10 @@ class AddRecipe extends React.Component {
                         </div>
 
                         <div className="form-group">
-                            <input type="text" placeholder="Zdjęcie" id="image" name="image" className="form-control"
-                                onChange={this.handleChange} value={this.props.recipe.image} />
+                        <form onSubmit={this._handleSubmit}>
+                        <input type="file" onChange={this._handleImageChange} value={this.props.recipe.image}/>
+                        </form>
+                            <div>{$imagePreview}</div>
                         </div>
                         <button type="submit" className="btn btn-primary">{label}</button>
                     </form>
